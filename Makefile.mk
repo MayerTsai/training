@@ -13,7 +13,7 @@ OBJ_FILES = $(addprefix $(BUILD_DIR)/, $(notdir $(SRC_FILES:.c=.o)))
 
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -g -O0 -Ilib/src -pthread
+CFLAGS = -Wall -Wextra -g -Ilib/src -pthread
 LDFLAGS = -pthread
 
 # Default target
