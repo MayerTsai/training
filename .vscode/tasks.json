@@ -2,20 +2,34 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build with make",
+      "label": "build",
       "type": "shell",
       "command": "make",
       "args": [
         "-f",
         "Makefile.mk"
       ],
-      "problemMatcher": [
-        "$gcc"
-      ],
       "group": {
         "kind": "build",
         "isDefault": true
-      }
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Runs 'make -f Makefile.mk' to build the project."
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "-f",
+        "Makefile.mk",
+        "clean"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "Runs 'make -f Makefile.mk clean' to remove build artifacts."
     }
   ]
 }

@@ -25,9 +25,7 @@ void test_semaphore()
   // Create multiple threads
   for (int i = 0; i < 3; i++)
   {
-    int *a = malloc(sizeof(int));
-    *a = i;
-    if (pthread_create(&threads[i], NULL, (void *)&child, (void *)a) != 0)
+    if (pthread_create(&threads[i], NULL, (void *)&child, (void *)&i) != 0)
     {
       perror("Thread creation failed");
       return;
@@ -49,8 +47,8 @@ void test_semaphore()
 // 子執行緒函數
 void child(void *arg)
 {
-  int a = *(int *)arg;
   int val;
+  int a = *(int *)arg;
 
   sem_wait(&my_semaphore); // Decrement semaphore value, wait if 0
   sem_getvalue(&my_semaphore, &val);
@@ -61,5 +59,5 @@ void child(void *arg)
   sem_post(&my_semaphore); // Increment semaphore value
   sem_getvalue(&my_semaphore, &val);
   printf("Thread %d: after sem_post and semaphore value = %d.\n", a, val);
-  free(arg);
+  // free(arg);
 }
