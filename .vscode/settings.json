@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "use_semaphore.h": "c"
+    "use_semaphore.h": "c",
+    "stdio.h": "c"
   }
 }

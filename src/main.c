@@ -7,38 +7,60 @@
 
 int main()
 {
+  int a = 1;
+  int b = a;
+  printf("a = %d at %p\n", a, (void *)&a);
+  printf("b = %d at %p\n", b, (void *)&b);
 
-  printf("\\ \" \' \n");
-  if (test_pointer() != 0)
-  {
-    printf("Pointer failed.");
-    return 1;
-  }
+  a = 2;
+  int *ptr = &a;
+  *ptr = 3;
+  printf("*ptr = %d at %p\n", *ptr, (void *)ptr);
+  printf("a= %d at %p\n", a, (void *)ptr);
 
-  if (test_myfunction() != 0)
-  {
-    printf("Function failed.");
-    return 1;
-  }
+  *ptr = b;
+  printf("b = %d at %p\n", b, (void *)ptr);
+  printf("a = %d  and b= %d\n", a, b);
 
-  if (test_collector() != 0)
-  {
-    printf("Collector failed.");
-    return 1;
-  }
+  ptr = &b;  
+  printf("b = %d at %p\n", b, (void *)ptr);
 
-  if (macro_test() != 0)
-  {
-    printf("Macro failed.");
-    return 1;
-  }
+  a = 4;
+  printf("a = %d and *ptr = %d\n", a, *ptr);
 
-  if (parent() != 0)
-  {
-    printf("Multithreading failed.");
-    return 1;
-  }
+  /*
 
+ printf("\\ \" \' \n");
+ if (test_pointer() != 0)
+ {
+   printf("Pointer failed.");
+   return 1;
+ }
+
+ if (test_myfunction() != 0)
+ {
+   printf("Function failed.");
+   return 1;
+ }
+
+ if (test_collector() != 0)
+ {
+   printf("Collector failed.");
+   return 1;
+ }
+
+ if (macro_test() != 0)
+ {
+   printf("Macro failed.");
+   return 1;
+ }
+
+ if (parent() != 0)
+ {
+   printf("Multithreading failed.");
+   return 1;
+ }
+*/
   return 0;
 }
 
