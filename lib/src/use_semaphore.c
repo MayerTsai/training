@@ -55,12 +55,12 @@ void child(void *arg)
 
   sem_wait(&my_semaphore); // Decrement semaphore value, wait if 0
   sem_getvalue(&my_semaphore, &val);
-  printf("Thread %d: after sem_wait and semaphore value =%d\n", a, val);
+  printf("Thread %d: after sem_wait and semaphore value = %d\n", a, val);
 
   sleep(1); // Simulate work in critical section
 
   sem_post(&my_semaphore); // Increment semaphore value
   sem_getvalue(&my_semaphore, &val);
-  printf("Thread %d: after sem_post and semaphore value =%d.\n", a, val);
+  printf("Thread %d: after sem_post and semaphore value = %d.\n", a, val);
   free(arg);
 }
