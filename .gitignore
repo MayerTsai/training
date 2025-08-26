@@ -1,0 +1,12 @@
+# Ignore the build directory where object files are stored
+build/
+
+# Ignore the final executable
+main
+
+# General C/C++ build artifacts
+*.o
+*.out
+
+# Editor/IDE specific files
+.vscode/
