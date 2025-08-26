@@ -5,11 +5,11 @@
 #include <semaphore.h>
 #include "use_semaphore.h"
 
-void child(void *);
 sem_t my_semaphore; // 旗標
+void child(void *arg);
 
 // 主程式
-int test_semaphore(void)
+void test_semaphore()
 {
   pthread_t threads[3];
 
@@ -19,7 +19,7 @@ int test_semaphore(void)
   if (sem_init(&my_semaphore, 0, 2) != 0)
   {
     perror("Semaphore initialization failed");
-    return 1;
+    return;
   }
 
   // Create multiple threads
@@ -30,7 +30,7 @@ int test_semaphore(void)
     if (pthread_create(&threads[i], NULL, (void *)&child, (void *)a) != 0)
     {
       perror("Thread creation failed");
-      return 1;
+      return;
     }
   }
 
@@ -42,9 +42,8 @@ int test_semaphore(void)
 
   // Destroy the semaphore
   sem_destroy(&my_semaphore);
-
   printf("All threads finished. Semaphore destroyed.\n");
-  return 0;
+  return;
 }
 
 // 子執行緒函數

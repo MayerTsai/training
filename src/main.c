@@ -21,13 +21,7 @@ int main()
   test_struct();
   test_array();
   test_myfunction();
-
-  if (test_semaphore() != 0)
-  {
-    printf("Multithreading failed.");
-    return 1;
-  }
-
+  test_semaphore();
   return 0;
 }
 
@@ -62,7 +56,7 @@ void test_array()
 
 void test_myfunction()
 {
-  printf("Test my add = %d\n", add(5, 10));
+  printf("my_add = %d\n", add(5, 10));
 }
 
 void test_macro()
