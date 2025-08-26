@@ -9,7 +9,7 @@ void child(void *);
 sem_t my_semaphore; // 旗標
 
 // 主程式
-int parent(void)
+int test_semaphore(void)
 {
   pthread_t threads[3];
 
