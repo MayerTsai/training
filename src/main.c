@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include <structure.h>
 #include <string.h>
+
+#include <structure.h>
 #include <use_func.h>
 #include <use_macro.h>
 #include <use_semaphore.h>
